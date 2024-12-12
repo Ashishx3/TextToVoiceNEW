@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text-to-Speech</title>
+</head>
+<body>
+    <h1>Text-to-Speech Conversion</h1>
+    <form action="/synthesize" method="post">
+        <label for="text">Enter Text:</label><br>
+        <textarea id="text" name="text" rows="4" cols="50"></textarea><br>
+        <button type="submit">Generate Speech</button>
+    </form>
+    
+    {% if audio_path %}
+    <br>
+    <a href="{{ url_for('download', filename=audio_path) }}" download>Download Audio</a>
+    {% endif %}
+</body>
+</html>
